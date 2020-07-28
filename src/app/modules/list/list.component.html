@@ -1,0 +1,59 @@
+<div class="control-group">
+    <div class="control">
+        <label class="control-label">Filter By</label>
+        <input [(ngModel)]="filterValue" (keyup)="applyFilter()" class="control-input" placeholder="filter">
+    </div>
+</div>
+
+
+<div class="table-container">
+    <div *ngIf="!isLoading">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="season">
+                <th mat-header-cell *matHeaderCellDef> Season </th>
+                <td mat-cell *matCellDef="let element"> {{element.season}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="opponent_team">
+                <th mat-header-cell *matHeaderCellDef> Opponent team </th>
+                <td mat-cell *matCellDef="let element"> {{element.opponent_team}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="score">
+                <th mat-header-cell *matHeaderCellDef> Score </th>
+                <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="points">
+                <th mat-header-cell *matHeaderCellDef> Team scored </th>
+                <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="points_opponent">
+                <th mat-header-cell *matHeaderCellDef> Opponent team scored </th>
+                <td mat-cell *matCellDef="let element"> {{element.points_opponent}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Date of game </th>
+                <td mat-cell *matCellDef="let element"> {{element.date | date: 'yyyy MM dd'}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="division">
+                <th mat-header-cell *matHeaderCellDef> Opponent division </th>
+                <td mat-cell *matCellDef="let element"> {{element.division}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="conference">
+                <th mat-header-cell *matHeaderCellDef> Opponent conference </th>
+                <td mat-cell *matCellDef="let element"> {{element.conference}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    
+    <mat-paginator [pageSizeOptions]="[25]" [length]="pageInfo ? pageInfo.total_count : 0" (page)="pageEvent = getServerData($event)" showFirstLastButtons></mat-paginator> 
+</div>
+

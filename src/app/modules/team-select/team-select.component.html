@@ -1,0 +1,19 @@
+<div class="form-container bordered">
+  <form [formGroup]="teamSelect">
+    <div class="control-group">
+      <div class="control">
+        <label class="control-label">Choose a team:</label>
+        <select class="control-select" formControlName="teamId" >
+          <option *ngFor="let team of teams" value="{{team.id}}">{{team.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control">
+        <label class="control-label">Choose season</label>
+        <input class="control-input" type="month" formControlName="season">
+      </div>
+    </div>
+      <button class="btn-primary" (click)="onSave()">Select Team</button>
+  </form>
+</div>

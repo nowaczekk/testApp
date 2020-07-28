@@ -1,0 +1,24 @@
+@import './../../shared/styles/colors.scss';
+
+.nav-container{
+    padding: 10px;
+    min-height: 100px;
+    height: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.menu-item{
+    list-style: none;
+    line-height: 80px;
+    padding: 10px;
+    text-align: center;
+    width: 20%;
+    height: 80%;
+
+    &:hover{
+        background-color: $color-bg-hover;
+    }
+}
+

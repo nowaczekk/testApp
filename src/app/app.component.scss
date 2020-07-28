@@ -1,0 +1,16 @@
+@import './shared/styles/_colors.scss';
+
+* {
+    box-sizing: border-box;
+    outline: none !important;
+}
+
+::ng-deep a {
+    text-decoration: none;
+    color: $black;
+}
+
+::ng-deep .bordered {
+    border: 1px $black solid;
+    border-radius: 5px;
+}
