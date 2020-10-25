@@ -21,7 +21,7 @@ export class SelectTeamService {
   }
 
   set selectedTeam(model: SelectedTeamModel) {
-    this._selectedTeam.next(model);;
+    this._selectedTeam.next(model);
   }
 
 }

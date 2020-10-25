@@ -21,7 +21,7 @@ export class TeamSelectComponent implements OnInit {
         private router: Router,
         private selectTeamService: SelectTeamService) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
       this.apiService.get().subscribe( teams => {
         this.teams = teams;
       });

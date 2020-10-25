@@ -4,11 +4,7 @@ import { TeamListModel } from '../models/team-list.model';
 
 @Injectable()
 export class TeamListService {
-
-  constructor() {
-   }
-
-  mapDtoToDisplayModel(data: TeamListModel[], choosenTeamName): MatchModel[] {
+  mapDtoToDisplayModel(data: TeamListModel[], choosenTeamName: string): MatchModel[] {
     const results: MatchModel[] = []
 
     data.map((match) => {
